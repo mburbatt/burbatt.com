@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Your Instant Home Valuation | Michael Burbatt Real Estate</title>
+  <meta name="description" content="Find out how much your home is worth. Get a free instant home valuation from Michael Burbatt, REALTOR® at David Lyng Real Estate.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ocean: '#2B9CD8',
+            'ocean-dark': '#1a7aad',
+          },
+          fontFamily: {
+            heading: ['"Playfair Display"', 'Georgia', 'serif'],
+            body: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    input { border: none; border-bottom: 1px solid #d1d5db; border-radius: 0; outline: none; }
+    input:focus { border-bottom-color: #2B9CD8; }
+    label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+  </style>
+</head>
+<body class="bg-white text-gray-800 min-h-screen">
+
+  <!-- Top bar -->
+  <div class="border-b border-gray-100 px-6 py-4 flex items-center gap-3">
+    <a href="index.html" class="flex items-center gap-2 text-gray-500 hover:text-gray-800 text-sm transition-colors">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+      Back to search
+    </a>
+  </div>
+
+  <!-- Main two-column layout -->
+  <div class="flex flex-col lg:flex-row min-h-[calc(100vh-57px)]">
+
+    <!-- LEFT: Lead capture form -->
+    <div class="lg:w-1/2 px-8 md:px-16 py-12 flex flex-col justify-center max-w-xl lg:max-w-none lg:mx-0">
+      <h1 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-2">Get your instant home valuation</h1>
+      <p class="text-gray-500 mb-10">Enter your details to see how much your home is worth.</p>
+
+      <form id="valuation-form" onsubmit="submitValuation(event)" novalidate>
+        <!-- Honeypot -->
+        <input type="text" name="honeypot" class="hidden" tabindex="-1" autocomplete="off">
+
+        <div class="mb-8">
+          <label for="v-name" class="block mb-2 text-gray-800">Full Name*</label>
+          <input id="v-name" name="name" type="text" required
+            class="w-full pb-2 text-base text-gray-900 bg-transparent placeholder-gray-400"
+            placeholder="Jane Smith">
+        </div>
+
+        <div class="mb-8">
+          <label for="v-email" class="block mb-2 text-gray-800">Email*</label>
+          <input id="v-email" name="email" type="email" required
+            class="w-full pb-2 text-base text-gray-900 bg-transparent placeholder-gray-400"
+            placeholder="jane@example.com">
+        </div>
+
+        <div class="mb-8">
+          <label for="v-phone" class="block mb-2 text-gray-800">Phone*</label>
+          <input id="v-phone" name="phone" type="tel" required
+            class="w-full pb-2 text-base text-gray-900 bg-transparent placeholder-gray-400"
+            placeholder="(831) 555-0000">
+        </div>
+
+        <div class="mb-8">
+          <label class="flex items-start gap-3 cursor-pointer">
+            <input type="checkbox" id="v-consent" required class="mt-1 w-4 h-4 flex-shrink-0 accent-ocean">
+            <span class="text-xs text-gray-500 normal-case font-normal tracking-normal leading-relaxed">
+              I agree to be contacted by Michael Burbatt via call, email, and text for real estate services.
+              To opt out, reply 'stop' at any time. Message and data rates may apply.
+              <a href="#" class="underline hover:text-ocean">Privacy Policy</a>.
+            </span>
+          </label>
+        </div>
+
+        <div id="form-error" class="hidden text-red-500 text-sm mb-4"></div>
+
+        <button type="submit"
+          class="w-full border border-gray-800 text-gray-800 font-bold text-sm tracking-widest uppercase py-4 px-6 hover:bg-gray-900 hover:text-white transition-colors">
+          Unlock Your Free Valuation
+        </button>
+
+        <div class="flex justify-center gap-6 mt-6">
+          <span class="flex items-center gap-1.5 text-xs text-gray-500">
+            <svg class="w-3.5 h-3.5 text-ocean" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Instant result
+          </span>
+          <span class="flex items-center gap-1.5 text-xs text-gray-500">
+            <svg class="w-3.5 h-3.5 text-ocean" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Sell for more
+          </span>
+          <span class="flex items-center gap-1.5 text-xs text-gray-500">
+            <svg class="w-3.5 h-3.5 text-ocean" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Get expert advice
+          </span>
+        </div>
+      </form>
+
+      <!-- Success message (hidden until form submits) -->
+      <div id="success-msg" class="hidden">
+        <div class="text-center py-8">
+          <svg class="w-14 h-14 text-ocean mx-auto mb-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <h2 class="text-2xl font-heading font-bold text-gray-900 mb-2">You're all set!</h2>
+          <p class="text-gray-500 mb-6">Michael will reach out shortly with your personalized home valuation report.</p>
+          <a href="index.html" class="text-ocean font-semibold hover:underline">← Back to burbatt.com</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Address + Map -->
+    <div class="lg:w-1/2 bg-gray-50 border-l border-gray-100 px-8 md:px-16 py-12 flex flex-col justify-start">
+      <p class="text-xs font-bold tracking-widest uppercase text-gray-400 mb-3">Home Value</p>
+      <div class="w-10 h-0.5 bg-gray-300 mb-6"></div>
+
+      <p class="text-xs font-bold tracking-widest uppercase text-gray-400 mb-2">Property Address</p>
+      <p id="display-address" class="text-lg font-medium text-gray-900 mb-6">—</p>
+
+      <!-- Google Map embed -->
+      <div id="map-container" class="w-full h-64 bg-gray-200 overflow-hidden">
+        <iframe id="map-frame" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src=""></iframe>
+      </div>
+
+      <a href="#" onclick="document.getElementById('calc-modal').classList.remove('hidden'); return false;" class="mt-4 text-sm font-semibold text-gray-700 underline hover:text-ocean">How we calculate your estimate</a>
+
+      <!-- How we calculate modal -->
+      <div id="calc-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center px-4" onclick="if(event.target===this)this.classList.add('hidden')">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="relative bg-white rounded-lg shadow-xl max-w-md w-full p-8">
+          <button onclick="document.getElementById('calc-modal').classList.add('hidden')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl leading-none">&times;</button>
+          <h3 class="text-xl font-heading font-bold text-gray-900 mb-4">How we calculate your estimate</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            burbatt.com Home Value is the current estimated value of this home. It is calculated from a comprehensive database which encompasses properties from all 50 states, covering 99% of the US population, and valuation software developed by Automated Valuation Model (AVM) Analytics and also uses AI tools.
+          </p>
+        </div>
+      </div>
+
+      <!-- Agent card -->
+      <div class="mt-10 flex items-center gap-4 border-t border-gray-200 pt-8">
+        <img src="headshot.jpg" alt="Michael Burbatt" class="w-14 h-14 rounded-full object-cover object-top bg-gray-200">
+        <div>
+          <p class="font-semibold text-gray-900">Michael Burbatt</p>
+          <p class="text-sm text-gray-500">REALTOR® · David Lyng Real Estate</p>
+          <a href="tel:+18312885000" class="text-sm text-ocean hover:underline">(831) 288-5000</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Read address from URL
+    const params = new URLSearchParams(window.location.search);
+    const address = params.get('address') || '';
+
+    if (address) {
+      document.getElementById('display-address').textContent = address;
+      // Free embed — no API key required
+      const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(address)}&output=embed&z=15`;
+      document.getElementById('map-frame').src = mapSrc;
+    }
+
+    function submitValuation(e) {
+      e.preventDefault();
+      const name    = document.getElementById('v-name').value.trim();
+      const email   = document.getElementById('v-email').value.trim();
+      const phone   = document.getElementById('v-phone').value.trim();
+      const consent = document.getElementById('v-consent').checked;
+      const honey   = document.querySelector('input[name="honeypot"]').value;
+      const errEl   = document.getElementById('form-error');
+
+      errEl.classList.add('hidden');
+
+      if (honey) return; // spam bot
+      if (!name || !email || !phone) {
+        errEl.textContent = 'Please fill in all required fields.';
+        errEl.classList.remove('hidden');
+        return;
+      }
+      if (!consent) {
+        errEl.textContent = 'Please agree to be contacted before continuing.';
+        errEl.classList.remove('hidden');
+        return;
+      }
+
+      // Send lead to Formspree (replace with your Formspree form ID or Modal endpoint)
+      fetch('https://formspree.io/f/YOUR_FORMSPREE_ID', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ name, email, phone, address, source: 'valuation', intent: 'Sell' })
+      })
+      .then(r => r.json())
+      .then(() => {
+        document.getElementById('valuation-form').classList.add('hidden');
+        document.getElementById('success-msg').classList.remove('hidden');
+      })
+      .catch(() => {
+        // Show success anyway — don't block the user
+        document.getElementById('valuation-form').classList.add('hidden');
+        document.getElementById('success-msg').classList.remove('hidden');
+      });
+    }
+  </script>
+
+</body>
+</html>
